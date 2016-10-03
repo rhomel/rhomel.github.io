@@ -3,3 +3,66 @@ body {
   font-family: sans-serif;
 }
 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: inline;
+}
+
+td {
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+.calendar span.month-name, .calendar span.epoch, .calendar span.date {
+  display: block;
+}
+
+.calendar span.month-name, span.epoch {
+  font-size: 11px;
+}
+
+.calendar span.month-name {
+  visibility: hidden;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.calendar span.date {
+  font-weight: bold;
+}
+
+.calendar span.epoch {
+  margin-top: 5px;
+}
+
+.calendar span.month-first {
+  visibility: visible;
+}
+
+.calendar td.month-first {
+  background: #dddddd;
+}
+
+.scale span.hours, .scale-minutes span.hours {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.scale td {
+  text-align: right;
+}
+
+/*
+.scale-minutes tbody {
+  display: block;
+  height: 500px;
+  width: 200px;
+  overflow: auto;
+}
+*/
+
+
+
+

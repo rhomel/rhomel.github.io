@@ -6,10 +6,157 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Hello</h1>
+    <div>
+      <table class="calendar">
+        <tbody id="calendar">
+        </tbody>
+      </table>
+
+      <table class="scale">
+        <tbody id="scale">
+        </tbody>
+      </table>
+
+      <table class="scale-minutes">
+        <tbody id="scale-minutes">
+        </tbody>
+      </table>
+
+    </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
     <script>
-      console.log("Now: " + moment().format());
+      var calendar = document.getElementById("calendar");
+
+      var now = moment();
+      var today = moment([now.year(), now.month(), now.date()]);
+      var firstDay = today.clone().subtract({days: today.day()});
+
+      for (var week = 5; week >= 0; week--) {
+        var date = firstDay.clone().subtract({weeks: week});
+        addRow( calendar, date );
+      }
+
+      function addRow( calendar, date ) {
+
+        var tr = document.createElement('tr');
+
+        for (var i = 0; i < 7; i++) {
+          var td = document.createElement('td');
+          tr.appendChild( td );
+
+          var d = date.clone().add({days: i});
+
+          var dateText = makeSpan( "date", d.date() );
+          var monthText = makeSpan( "month-name", d.format("MMMM") );
+          var epochText = makeSpan( "epoch", d.unix() );
+
+          if ( d.date() == 1 ) {
+            monthText.classList.add("month-first");
+            td.classList.add("month-first");
+          }
+
+          td.appendChild( monthText );
+          td.appendChild( dateText );
+          td.appendChild( epochText );
+
+          dateText.onclick = function() {
+            showHourScale( d );
+          };
+
+        }
+
+        calendar.appendChild( tr );
+
+      }
+
+      function makeSpan( className, text ) {
+        var span = document.createElement('span');
+        span.appendChild( document.createTextNode( text ) );
+        span.classList.add( className );
+        return span;
+      }
+
+      function showHourScale( date ) {
+        // center at midnight
+        var d = moment([ date.year(), date.month(), date.date() ]);
+
+        var scale = document.getElementById('scale');
+
+        if (!scale) {
+          console.log("Warning: couldn't find #scale");
+          return;
+        }
+
+        // remove all children
+        while (scale.firstChild) {
+          scale.removeChild(scale.firstChild);
+        }
+
+        var tr = document.createElement('tr');
+        var th = document.createElement('td');
+        th.appendChild( makeSpan( "scale-header", d.format("MMMM Do YYYY") ) );
+        tr.appendChild(th);
+        scale.appendChild(tr);
+
+        for (var i = 0; i < 25; i++) {
+
+          (function() {
+            var offset = d.clone().add({hours: i});
+
+            var tr = document.createElement('tr');
+            var td = document.createElement('td');
+            var hoursText = makeSpan( "hours", offset.format("H:mm") );
+            td.appendChild( hoursText );
+            td.appendChild( makeSpan( "epoch", offset.unix() ) );
+
+            tr.appendChild(td);
+            scale.appendChild(tr);
+
+            hoursText.onclick = function() {
+              showMinuteScale( offset );
+            };
+          })();
+
+        }
+
+      }
+
+      function showMinuteScale( date ) {
+        var d = moment([ date.year(), date.month(), date.date(), date.hour() ]);
+
+        var scale = document.getElementById('scale-minutes');
+
+        if (!scale) {
+          console.log("Warning: couldn't find #scale-minutes");
+          return;
+        }
+
+        // remove all children
+        while (scale.firstChild) {
+          scale.removeChild(scale.firstChild);
+        }
+
+        var tr = document.createElement('tr');
+        var th = document.createElement('td');
+        th.appendChild( makeSpan( "scale-header", d.format("MMMM Do YYYY") ) );
+        tr.appendChild(th);
+        scale.appendChild(tr);
+
+        for (var i = 0; i < 60; i++) {
+
+          var tr = document.createElement('tr');
+          var td = document.createElement('td');
+          td.appendChild( makeSpan( "hours", d.format("H:mm") ) );
+          td.appendChild( makeSpan( "epoch", d.unix() ) );
+
+          tr.appendChild(td);
+          scale.appendChild(tr);
+
+          d.add({minutes: 1});
+        }
+
+      }
+
     </script>
   </body>
 </html>
