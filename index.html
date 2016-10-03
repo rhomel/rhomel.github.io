@@ -107,6 +107,7 @@
             var td = document.createElement('td');
             var hoursText = makeSpan( "hours", offset.format("H:mm") );
             td.appendChild( hoursText );
+            td.appendChild( blank() );
             td.appendChild( makeSpan( "epoch", offset.unix() ) );
 
             tr.appendChild(td);
@@ -147,6 +148,7 @@
           var tr = document.createElement('tr');
           var td = document.createElement('td');
           td.appendChild( makeSpan( "hours", d.format("H:mm") ) );
+          td.appendChild( blank() );
           td.appendChild( makeSpan( "epoch", d.unix() ) );
 
           tr.appendChild(td);
@@ -155,6 +157,10 @@
           d.add({minutes: 1});
         }
 
+      }
+
+      function blank() {
+        return document.createTextNode(' ');
       }
 
     </script>
