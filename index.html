@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <button id="more">More</button>
     <div>
       <table class="calendar">
         <tbody id="calendar">
@@ -32,15 +33,28 @@
         } 
       };
 
-      var calendar = document.getElementById("calendar");
+      (function() {
+        var WEEKS = 5;
+        render(WEEKS, document.getElementById("calendar"));
 
-      var now = moment();
-      var today = moment([now.year(), now.month(), now.date()]);
-      var firstDay = today.clone().subtract({days: today.day()});
+        var more = document.getElementById("more");
+        more.onclick = function() {
+          WEEKS += 1;
+          var cal = document.getElementById("calendar");
+          cal.removeAll();
+          render(WEEKS, cal);
+        };
+      })();
 
-      for (var week = 5; week >= 0; week--) {
-        var date = firstDay.clone().subtract({weeks: week});
-        addRow( calendar, date );
+      function render(WEEKS, calendar) {
+        var now = moment();
+        var today = moment([now.year(), now.month(), now.date()]);
+        var firstDay = today.clone().subtract({days: today.day()});
+
+        for (var week = WEEKS; week >= 0; week--) {
+          var date = firstDay.clone().subtract({weeks: week});
+          addRow( calendar, date );
+        }
       }
 
       function addRow( calendar, date ) {
