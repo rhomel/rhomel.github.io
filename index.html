@@ -25,6 +25,13 @@
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
     <script>
+      // convenience function for removing all children
+      Element.prototype.removeAll = function() { 
+        while(this.firstChild) { 
+          this.removeChild(this.firstChild);
+        } 
+      };
+
       var calendar = document.getElementById("calendar");
 
       var now = moment();
@@ -88,9 +95,7 @@
         }
 
         // remove all children
-        while (scale.firstChild) {
-          scale.removeChild(scale.firstChild);
-        }
+        scale.removeAll();
 
         var tr = document.createElement('tr');
         var th = document.createElement('td');
@@ -133,9 +138,7 @@
         }
 
         // remove all children
-        while (scale.firstChild) {
-          scale.removeChild(scale.firstChild);
-        }
+        scale.removeAll();
 
         var tr = document.createElement('tr');
         var th = document.createElement('td');
