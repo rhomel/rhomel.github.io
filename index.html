@@ -53,36 +53,42 @@
 
         for (var week = WEEKS; week >= 0; week--) {
           var date = firstDay.clone().subtract({weeks: week});
-          addRow( calendar, date );
+          addRow( calendar, date, today );
         }
       }
 
-      function addRow( calendar, date ) {
+      function addRow( calendar, date, today ) {
 
         var tr = document.createElement('tr');
 
         for (var i = 0; i < 7; i++) {
-          var td = document.createElement('td');
-          tr.appendChild( td );
+          (function(){
+            var td = document.createElement('td');
+            tr.appendChild( td );
 
-          var d = date.clone().add({days: i});
+            var d = date.clone().add({days: i});
 
-          var dateText = makeSpan( "date", d.date() );
-          var monthText = makeSpan( "month-name", d.format("MMMM") );
-          var epochText = makeSpan( "epoch", d.unix() );
+            var dateText = makeSpan( "date", d.date() );
+            var monthText = makeSpan( "month-name", d.format("MMMM") );
+            var epochText = makeSpan( "epoch", d.unix() );
 
-          if ( d.date() == 1 ) {
-            monthText.classList.add("month-first");
-            td.classList.add("month-first");
-          }
+            if ( d.date() == 1 ) {
+              monthText.classList.add("month-first");
+              td.classList.add("month-first");
+            }
 
-          td.appendChild( monthText );
-          td.appendChild( dateText );
-          td.appendChild( epochText );
+            if ( d.isSame(today, 'day') ) {
+              td.classList.add("today");
+            }
 
-          dateText.onclick = function() {
-            showHourScale( d );
-          };
+            td.appendChild( monthText );
+            td.appendChild( dateText );
+            td.appendChild( epochText );
+
+            dateText.onclick = function() {
+              showHourScale( d );
+            };
+          })();
 
         }
 

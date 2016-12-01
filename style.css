@@ -4,8 +4,8 @@ body {
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  /*border-collapse: collapse;*/
+  border-spacing: 1;
   display: inline;
 }
 
@@ -43,6 +43,11 @@ td {
 
 .calendar td.month-first {
   background: #dddddd;
+}
+
+.calendar td.today {
+  border-style: dashed;
+  border-width: 2px;
 }
 
 .scale span.hours, .scale-minutes span.hours {
