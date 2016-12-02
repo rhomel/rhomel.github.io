@@ -312,17 +312,18 @@
       // make a "louw" formatted date with HTML tags delimiting each component
       function prettyLouwFormat(date) {
         // YYYYMMDDHHmmssSSS
+        var utc = date.utc();
 
         var span = document.createElement("span");
         span.classList.add("louw");
 
-        span.appendChild( makeSpan("year", date.format("YYYY")) );
-        span.appendChild( makeSpan("month", date.format("MM")) );
-        span.appendChild( makeSpan("day", date.format("DD")) );
-        span.appendChild( makeSpan("hour", date.format("HH")) );
-        span.appendChild( makeSpan("minute", date.format("mm")) );
-        span.appendChild( makeSpan("second", date.format("ss")) );
-        span.appendChild( makeSpan("millisecond", date.format("SSS")) );
+        span.appendChild( makeSpan("year", utc.format("YYYY")) );
+        span.appendChild( makeSpan("month", utc.format("MM")) );
+        span.appendChild( makeSpan("day", utc.format("DD")) );
+        span.appendChild( makeSpan("hour", utc.format("HH")) );
+        span.appendChild( makeSpan("minute", utc.format("mm")) );
+        span.appendChild( makeSpan("second", utc.format("ss")) );
+        span.appendChild( makeSpan("millisecond", utc.format("SSS")) );
 
         return span;
       }
