@@ -115,3 +115,7 @@ div.panel {
   border-right: 7px solid #bbb;
 }
 
+.hidden {
+  display: none;
+}
+

@@ -16,15 +16,15 @@
               <button id="epoch-query-find">Show Date</button>
             </td>
           </tr>
-          <tr>
+          <tr class="output hidden">
             <th>Humans:</th>
             <td id="display-human"></td>
           </tr>
-          <tr>
+          <tr class="output hidden">
             <th>Louw:</th>
             <td id="display-louw"></td>
           </tr>
-          <tr>
+          <tr class="output hidden">
             <th>ISO 8601:</th>
             <td id="display-iso8601"></td>
           </tr>
@@ -107,11 +107,17 @@
           document.getElementById("display-human").setText( date.format("dddd, MMMM Do YYYY, h:mm:ss a") );
           document.getElementById("display-iso8601").setText( date.format() );
 
-          //document.getElementById("display-louw").setText( date.clone().utc().format("YYYYMMDDHHmmssSSS") );
+          // document.getElementById("display-louw").setText( date.clone().utc().format("YYYYMMDDHHmmssSSS") );
           var louw = prettyLouwFormat( date );
           var louw_display = document.getElementById("display-louw");
           louw_display.removeAll();
           louw_display.appendChild(louw);
+
+          var outputs = document.querySelectorAll("#epoch-query-panel .output");
+          // unhide output
+          for (var i = 0; i < outputs.length; i++) {
+            outputs[i].classList.remove('hidden');
+          }
         };
 
       })();
