@@ -33,14 +33,21 @@
       </table>
     </div>
 
-    <button id="more">Add 5 More Past Weeks</button>
-    <button id="more-future">Add 5 More Future Weeks</button>
 
-    <div>
-      <table class="cal calendar">
-        <tbody id="calendar">
-        </tbody>
-      </table>
+    <div class="flex-container">
+      <div>
+        <button id="more">Add 5 More Past Weeks</button>
+      </div>
+    </div>
+
+    <div class="flex-container">
+      <div>
+        <table class="cal calendar">
+          <tbody id="calendar">
+          </tbody>
+        </table>
+        <button id="more-future">Add 5 More Future Weeks</button>
+      </div>
 
       <table class="cal scale">
         <tbody id="scale">
@@ -51,8 +58,8 @@
         <tbody id="scale-minutes">
         </tbody>
       </table>
-
     </div>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
     <script>
       // convenience function for removing all children

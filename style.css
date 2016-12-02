@@ -6,7 +6,6 @@ body {
 table.cal {
   border-collapse: collapse;
   border-spacing: 1;
-  display: inline;
 }
 
 .cal td {
@@ -118,5 +117,14 @@ div.panel {
 
 .hidden {
   display: none;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container > * {
+  flex: 1;
+  margin: 0 5px;
 }
 
