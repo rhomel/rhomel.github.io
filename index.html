@@ -6,20 +6,47 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="panel" id="epoch-query-panel">
+      <table class="panel">
+        <tbody>
+          <tr>
+            <th>Epoch:</th>
+            <td>
+              <input id="epoch-query" type="text">
+              <button id="epoch-query-find">Show Date</button>
+            </td>
+          </tr>
+          <tr>
+            <th>Humans:</th>
+            <td id="display-human"></td>
+          </tr>
+          <tr>
+            <th>Louw:</th>
+            <td id="display-louw"></td>
+          </tr>
+          <tr>
+            <th>ISO 8601:</th>
+            <td id="display-iso8601"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <button id="more">Add 5 More Past Weeks</button>
     <button id="more-future">Add 5 More Future Weeks</button>
+
     <div>
-      <table class="calendar">
+      <table class="cal calendar">
         <tbody id="calendar">
         </tbody>
       </table>
 
-      <table class="scale">
+      <table class="cal scale">
         <tbody id="scale">
         </tbody>
       </table>
 
-      <table class="scale-minutes">
+      <table class="cal scale-minutes">
         <tbody id="scale-minutes">
         </tbody>
       </table>
@@ -34,12 +61,24 @@
         } 
       };
 
+      // convenience function for emptying an dom element and replacing it with specified text
+      Element.prototype.setText = function(text) { 
+        console.log(this);
+        this.removeAll();
+        this.appendChild( document.createTextNode(text) );
+      };
+
       STATE = {
         "last_minute_offset_hours" : null,
         "weeks" : 5,
         "future_weeks" : 1
       };
 
+      STATE.logCalendarBounds = function() {
+        console.log('From: ' + STATE.calendar_start.format());
+        console.log('To:   ' + STATE.calendar_end.format());
+      };
+      
       (function() {
         var sync = function() {
           render(STATE.weeks, STATE.future_weeks, document.getElementById("calendar"));
@@ -59,15 +98,35 @@
           sync();
         };
 
+        var epoch_query = document.getElementById("epoch-query");
+        var epoch_query_find = document.getElementById("epoch-query-find");
+
+        epoch_query_find.onclick = function() {
+          var date = moment.unix(epoch_query.value);
+
+          document.getElementById("display-human").setText( date.format("dddd, MMMM Do YYYY, h:mm:ss a") );
+          document.getElementById("display-iso8601").setText( date.format() );
+
+          //document.getElementById("display-louw").setText( date.clone().utc().format("YYYYMMDDHHmmssSSS") );
+          var louw = prettyLouwFormat( date );
+          var louw_display = document.getElementById("display-louw");
+          louw_display.removeAll();
+          louw_display.appendChild(louw);
+        };
+
       })();
 
       function render(WEEKS, futureWeeks, calendar) {
         calendar.removeAll();
         var now = moment();
         var today = moment([now.year(), now.month(), now.date()]);
-        var firstDay = today.clone().subtract({days: today.day()});
+        var firstDay = today.clone().subtract({days: today.day()}); // first day of the week (Sunday)
+        var lastWeek = (-1 * futureWeeks); // last week to render
 
-        for (var week = WEEKS; week >= (-1 * futureWeeks); week--) {
+        STATE.calendar_start = firstDay.clone().subtract({weeks: WEEKS});
+        STATE.calendar_end = firstDay.clone().subtract({weeks: lastWeek}).add({days: 7});
+
+        for (var week = WEEKS; week >= lastWeek; week--) {
           var date = firstDay.clone().subtract({weeks: week});
           addRow( calendar, date, today );
         }
@@ -235,6 +294,24 @@
 
       function blank() {
         return document.createTextNode(' ');
+      }
+
+      // make a "louw" formatted date with HTML tags delimiting each component
+      function prettyLouwFormat(date) {
+        // YYYYMMDDHHmmssSSS
+
+        var span = document.createElement("span");
+        span.classList.add("louw");
+
+        span.appendChild( makeSpan("year", date.format("YYYY")) );
+        span.appendChild( makeSpan("month", date.format("MM")) );
+        span.appendChild( makeSpan("day", date.format("DD")) );
+        span.appendChild( makeSpan("hour", date.format("HH")) );
+        span.appendChild( makeSpan("minute", date.format("mm")) );
+        span.appendChild( makeSpan("second", date.format("ss")) );
+        span.appendChild( makeSpan("millisecond", date.format("SSS")) );
+
+        return span;
       }
 
     </script>

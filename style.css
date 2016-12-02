@@ -3,13 +3,13 @@ body {
   font-family: sans-serif;
 }
 
-table {
+table.cal {
   border-collapse: collapse;
   border-spacing: 1;
   display: inline;
 }
 
-td {
+.cal td {
   border: 1px solid gray;
   padding: 10px;
 }
@@ -89,6 +89,29 @@ td {
 }
 */
 
+div.panel {
+  margin: 18px 0px;
+}
 
+.panel table th {
+  text-align: right;
+}
 
+.louw .year, .louw .day, .louw .minute, .louw .millisecond {
+}
+
+.louw .month, .louw .hour, .louw .second {
+}
+
+.louw .year, .louw .month {
+  border-right: 3px solid #bbb;
+}
+
+.louw .hour, .louw .minute {
+  border-right: 3px solid #bbb;
+}
+
+.louw .day, .louw .second {
+  border-right: 7px solid #bbb;
+}
 
