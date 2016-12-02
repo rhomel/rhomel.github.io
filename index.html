@@ -13,8 +13,8 @@
             <th>Epoch:</th>
             <td>
               <input id="epoch-query" type="text">
-              <button id="epoch-query-now">Now</button>
               <button id="epoch-query-find">Show Date</button>
+              <button id="epoch-query-now">Now</button>
             </td>
           </tr>
           <tr class="output hidden">
@@ -64,7 +64,6 @@
 
       // convenience function for emptying an dom element and replacing it with specified text
       Element.prototype.setText = function(text) { 
-        console.log(this);
         this.removeAll();
         this.appendChild( document.createTextNode(text) );
       };
@@ -78,6 +77,10 @@
       STATE.logCalendarBounds = function() {
         console.log('From: ' + STATE.calendar_start.format());
         console.log('To:   ' + STATE.calendar_end.format());
+      };
+
+      STATE.isDateInCalendar = function(date) {
+        return date.isBetween(STATE.calendar_start, STATE.calendar_end, null, '[]'); // inclusive
       };
       
       (function() {
@@ -120,6 +123,37 @@
           for (var i = 0; i < outputs.length; i++) {
             outputs[i].classList.remove('hidden');
           }
+
+          if ( STATE.isDateInCalendar(date) ) {
+            // find and select the date in the calendar
+            var ms = date.diff(STATE.calendar_start);
+            var duration = moment.duration(ms);
+            var days = parseInt( duration.asDays() );
+            var hours = parseInt( duration.asHours() );
+
+            var dayOffset = days % 7;
+            var rowOffset = (days - dayOffset) / 7;
+            var hourOffset = hours % 24;
+
+            /*
+            console.log(ms);
+            console.log(days);
+            console.log(dayOffset);
+            console.log(rowOffset);
+            console.log(hourOffset);
+            */
+
+            var cal = document.getElementById("calendar");
+            var cellDay = cal.children[rowOffset].children[dayOffset];
+            cellDay.click();
+
+            if (hourOffset != 0) {
+              var scale = document.getElementById("scale");
+              var cellHour = scale.children[hourOffset+1].children[0];
+              cellHour.click();
+            }
+          }
+
         };
 
         epoch_query_now.onclick = function() {
@@ -327,7 +361,7 @@
 
         return span;
       }
-
+      
     </script>
   </body>
 </html>
