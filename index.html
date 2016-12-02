@@ -102,7 +102,7 @@
 
               showHourScale( d );
 
-              if (STATE.last_minute_offset_hours) {
+              if (STATE.last_minute_offset_hours != null) {
                 showMinuteScale( d.clone().add({"hours" : STATE.last_minute_offset_hours}) );
               }
             };
@@ -141,7 +141,7 @@
 
         var tr = document.createElement('tr');
         var th = document.createElement('td');
-        th.appendChild( makeSpan( "scale-header", d.format("MMMM Do YYYY") ) );
+        th.appendChild( makeSpan( "scale-header", d.format("MMM Do YYYY") ) );
         tr.appendChild(th);
         scale.appendChild(tr);
 
@@ -202,7 +202,7 @@
 
         var tr = document.createElement('tr');
         var th = document.createElement('td');
-        th.appendChild( makeSpan( "scale-header", d.format("MMMM Do YYYY") ) );
+        th.appendChild( makeSpan( "scale-header", d.format("MMM Do YYYY") ) );
         tr.appendChild(th);
         scale.appendChild(tr);
 
