@@ -98,8 +98,8 @@
               if (lastSelectedItem) {
                 lastSelectedItem.classList.remove("selected")
               }
-
               td.classList.add("selected");
+
               showHourScale( d );
 
               if (STATE.last_minute_offset_hours) {
@@ -162,7 +162,17 @@
             tr.appendChild(td);
             scale.appendChild(tr);
 
+            if (STATE.last_minute_offset_hours == i) {
+              td.classList.add("selected");
+            }
+
             td.onclick = function() {
+              var lastSelectedItem = td.parentNode.parentNode.querySelector(".selected");
+              if (lastSelectedItem) {
+                lastSelectedItem.classList.remove("selected")
+              }
+              td.classList.add("selected");
+
               STATE.last_minute_offset_hours = offset_hours;
               showMinuteScale( offset );
             };
