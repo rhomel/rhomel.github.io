@@ -13,6 +13,7 @@
             <th>Epoch:</th>
             <td>
               <input id="epoch-query" type="text">
+              <button id="epoch-query-now">Now</button>
               <button id="epoch-query-find">Show Date</button>
             </td>
           </tr>
@@ -100,6 +101,7 @@
 
         var epoch_query = document.getElementById("epoch-query");
         var epoch_query_find = document.getElementById("epoch-query-find");
+        var epoch_query_now = document.getElementById("epoch-query-now");
 
         epoch_query_find.onclick = function() {
           var date = moment.unix(epoch_query.value);
@@ -118,6 +120,11 @@
           for (var i = 0; i < outputs.length; i++) {
             outputs[i].classList.remove('hidden');
           }
+        };
+
+        epoch_query_now.onclick = function() {
+          epoch_query.value = moment().unix();
+          epoch_query_find.click();
         };
 
       })();

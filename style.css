@@ -95,6 +95,7 @@ div.panel {
 
 .panel table th {
   text-align: right;
+  width: 80px;
 }
 
 .louw .year, .louw .day, .louw .minute, .louw .millisecond {
