@@ -4,7 +4,7 @@ body {
 }
 
 table {
-  /*border-collapse: collapse;*/
+  border-collapse: collapse;
   border-spacing: 1;
   display: inline;
 }
@@ -50,6 +50,19 @@ td {
   border-width: 2px;
 }
 
+.calendar td.future {
+  border-style: dotted;
+  border-width: 2px;
+}
+
+.calendar td, .scale td {
+  cursor: pointer;
+}
+
+.calendar td .epoch, .scale td .epoch {
+  cursor: auto;
+}
+
 .scale span.hours, .scale-minutes span.hours {
   margin-right: 5px;
   font-weight: bold;
@@ -57,6 +70,14 @@ td {
 
 .scale td {
   text-align: right;
+}
+
+.calendar td.selected, .scale td.selected {
+  background: #ddddff;
+}
+
+.calendar td:hover, .scale td:hover {
+  background: #ddffdd;
 }
 
 /*
