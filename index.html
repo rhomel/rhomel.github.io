@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <button id="more">Add 5 More Weeks</button>
+    <button id="more">Add 5 More Past Weeks</button>
+    <button id="more-future">Add 5 More Future Weeks</button>
     <div>
       <table class="calendar">
         <tbody id="calendar">
@@ -40,18 +41,28 @@
       };
 
       (function() {
-        render(STATE.weeks, STATE.future_weeks, document.getElementById("calendar"));
+        var sync = function() {
+          render(STATE.weeks, STATE.future_weeks, document.getElementById("calendar"));
+        };
+
+        sync();
 
         var more = document.getElementById("more");
         more.onclick = function() {
           STATE.weeks += 5;
-          var cal = document.getElementById("calendar");
-          cal.removeAll();
-          render(STATE.weeks, STATE.future_weeks, cal);
+          sync();
         };
+
+        var more_future = document.getElementById("more-future");
+        more_future.onclick = function() {
+          STATE.future_weeks += 5;
+          sync();
+        };
+
       })();
 
       function render(WEEKS, futureWeeks, calendar) {
+        calendar.removeAll();
         var now = moment();
         var today = moment([now.year(), now.month(), now.date()]);
         var firstDay = today.clone().subtract({days: today.day()});
