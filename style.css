@@ -121,10 +121,24 @@ div.panel {
 
 .flex-container {
   display: flex;
+  width: 100%;
 }
 
 .flex-container > * {
   flex: 1;
   margin: 0 5px;
+}
+
+.scroll {
+  overflow-y: auto;
+  height: 540px;
+}
+
+.shrink {
+  flex: 0 1 auto;
+}
+
+.grow {
+  flex: 1 1 auto;
 }
 
