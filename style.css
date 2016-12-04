@@ -143,3 +143,9 @@ div.panel {
   flex: 1 1 auto;
 }
 
+span.group {
+  padding: 5px 5px;
+  margin: 0 5px;
+  border: 1px solid gray;
+}
+

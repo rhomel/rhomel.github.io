@@ -15,6 +15,25 @@
               <input id="epoch-query" type="text">
               <button id="epoch-query-find">Show Date</button>
               <button id="epoch-query-now">Now</button>
+
+              <span class="group">
+                Minute
+                <button id="epoch-query-minute-sub">-</button>
+                <button id="epoch-query-minute-add">+</button>
+              </span>
+              
+              <span class="group">
+                Hour
+                <button id="epoch-query-hour-sub">-</button>
+                <button id="epoch-query-hour-add">+</button>
+              </span>
+
+              <span class="group">
+                Day
+                <button id="epoch-query-day-sub">-</button>
+                <button id="epoch-query-day-add">+</button>
+              </span>
+              &nbsp;
             </td>
           </tr>
           <tr class="output hidden">
@@ -145,15 +164,55 @@
 
             var cal = document.getElementById("calendar");
             var cellDay = cal.children[rowOffset].children[dayOffset];
-            cellDay.click();
+            cellDay.setSelected();
 
             if (hourOffset != 0) {
               var scale = document.getElementById("scale");
               var cellHour = scale.children[hourOffset+1].children[0];
-              cellHour.click();
+              cellHour.setSelected();
             }
           }
 
+        };
+
+        var mutateQueryValue = function(time_mutation) {
+          var d = moment.unix(epoch_query.value);
+          d.add(time_mutation);
+          epoch_query.value = d.unix();
+          epoch_query_find.click();
+        };
+
+        var add_minute = document.getElementById("epoch-query-minute-add");
+        var sub_minute = document.getElementById("epoch-query-minute-sub");
+
+        add_minute.onclick = function() {
+          mutateQueryValue({"minutes":1});
+        };
+
+        sub_minute.onclick = function() {
+          mutateQueryValue({"minutes":-1});
+        };
+
+        var add_hour = document.getElementById("epoch-query-hour-add");
+        var sub_hour = document.getElementById("epoch-query-hour-sub");
+
+        add_hour.onclick = function() {
+          mutateQueryValue({"hours":1});
+        };
+
+        sub_hour.onclick = function() {
+          mutateQueryValue({"hours":-1});
+        };
+
+        var add_day = document.getElementById("epoch-query-day-add");
+        var sub_day = document.getElementById("epoch-query-day-sub");
+
+        add_day.onclick = function() {
+          mutateQueryValue({"days":1});
+        };
+
+        sub_day.onclick = function() {
+          mutateQueryValue({"days":-1});
         };
 
         epoch_query_now.onclick = function() {
@@ -237,7 +296,7 @@
             td.appendChild( dateText );
             td.appendChild( epochText );
 
-            td.onclick = function() {
+            td.setSelected = function() {
               var lastSelectedItem = td.parentNode.parentNode.querySelector(".selected");
               if (lastSelectedItem) {
                 lastSelectedItem.classList.remove("selected")
@@ -249,7 +308,10 @@
               if (STATE.last_minute_offset_hours != null) {
                 showMinuteScale( d.clone().add({"hours" : STATE.last_minute_offset_hours}) );
               }
-              
+            };
+
+            td.onclick = function() {
+              td.setSelected();
               renderEpochConversions(d.unix());
             };
 
@@ -312,7 +374,7 @@
               td.classList.add("selected");
             }
 
-            td.onclick = function() {
+            td.setSelected = function() {
               var lastSelectedItem = td.parentNode.parentNode.querySelector(".selected");
               if (lastSelectedItem) {
                 lastSelectedItem.classList.remove("selected")
@@ -321,6 +383,10 @@
 
               STATE.last_minute_offset_hours = offset_hours;
               showMinuteScale( offset );
+            };
+
+            td.onclick = function() {
+              td.setSelected();
               renderEpochConversions(offset.unix());
             };
 
