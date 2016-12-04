@@ -122,22 +122,7 @@
         var epoch_query_now = document.getElementById("epoch-query-now");
 
         epoch_query_find.onclick = function() {
-          var date = moment.unix(epoch_query.value);
-
-          document.getElementById("display-human").setText( date.format("dddd, MMMM Do YYYY, h:mm:ss a") );
-          document.getElementById("display-iso8601").setText( date.format() );
-
-          // document.getElementById("display-louw").setText( date.clone().utc().format("YYYYMMDDHHmmssSSS") );
-          var louw = prettyLouwFormat( date );
-          var louw_display = document.getElementById("display-louw");
-          louw_display.removeAll();
-          louw_display.appendChild(louw);
-
-          var outputs = document.querySelectorAll("#epoch-query-panel .output");
-          // unhide output
-          for (var i = 0; i < outputs.length; i++) {
-            outputs[i].classList.remove('hidden');
-          }
+          var date = renderEpochConversions();
 
           if ( STATE.isDateInCalendar(date) ) {
             // find and select the date in the calendar
@@ -196,6 +181,31 @@
         }
       }
 
+      function renderEpochConversions(val) {
+        var epoch_query = document.getElementById("epoch-query");
+        if (val) {
+          epoch_query.value = val;
+        }
+        var date = moment.unix(epoch_query.value);
+
+        document.getElementById("display-human").setText( date.format("dddd, MMMM Do YYYY, h:mm:ss a") );
+        document.getElementById("display-iso8601").setText( date.format() );
+
+        // document.getElementById("display-louw").setText( date.clone().utc().format("YYYYMMDDHHmmssSSS") );
+        var louw = prettyLouwFormat( date );
+        var louw_display = document.getElementById("display-louw");
+        louw_display.removeAll();
+        louw_display.appendChild(louw);
+
+        var outputs = document.querySelectorAll("#epoch-query-panel .output");
+        // unhide output
+        for (var i = 0; i < outputs.length; i++) {
+          outputs[i].classList.remove('hidden');
+        }
+
+        return date;
+      }
+
       function addRow( calendar, date, today ) {
 
         var tr = document.createElement('tr');
@@ -239,6 +249,8 @@
               if (STATE.last_minute_offset_hours != null) {
                 showMinuteScale( d.clone().add({"hours" : STATE.last_minute_offset_hours}) );
               }
+              
+              renderEpochConversions(d.unix());
             };
 
             epochText.onclick = function(ev) {
@@ -309,6 +321,7 @@
 
               STATE.last_minute_offset_hours = offset_hours;
               showMinuteScale( offset );
+              renderEpochConversions(offset.unix());
             };
 
             epochText.onclick = function(ev) {
