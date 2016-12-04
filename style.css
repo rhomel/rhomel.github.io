@@ -45,13 +45,11 @@ table.cal {
 }
 
 .calendar td.today {
-  border-style: dashed;
-  border-width: 2px;
+  color: blue;
 }
 
 .calendar td.future {
-  border-style: dotted;
-  border-width: 2px;
+  color: gray;
 }
 
 .calendar td, .scale td {
@@ -97,6 +95,11 @@ div.panel {
   width: 80px;
 }
 
+.louw span {
+  border: 1px solid gray;
+  padding: 0 2px;
+}
+
 .louw .year, .louw .day, .louw .minute, .louw .millisecond {
 }
 
@@ -104,15 +107,13 @@ div.panel {
 }
 
 .louw .year, .louw .month {
-  border-right: 3px solid #bbb;
 }
 
 .louw .hour, .louw .minute {
-  border-right: 3px solid #bbb;
 }
 
 .louw .day, .louw .second {
-  border-right: 7px solid #bbb;
+  border-right: 3px solid gray;
 }
 
 .hidden {
