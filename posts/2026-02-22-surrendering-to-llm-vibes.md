@@ -65,9 +65,9 @@ the time but I liked my professor for two reasons:
 1. He clearly made the underhanded joke that for grading "we should imagine
    we're being chased by a hungry lion; we shouldn't try to outrun the lion,
    but instead not be the slowest person in the group."
-2. The work on sorting algorithms was for the most part focused on _comparisons_
-   being slow. What if _comparisons_ are nearly free and instead memory swaps
-   are slow?
+2. The work on sorting algorithms was for the most part focused on
+   _comparisons_ being slow. He asked us to think of what would change if
+   _comparisons_ are nearly free and instead memory writes are slow?
 
 Both of those perspectives opened up my mind as a student a bit. We need to
 again adopt that mindset and understand what generated code via LLMs changed:
@@ -166,5 +166,6 @@ becomes common. What people can do (for each other) remains interesting because
 most humans still value social language.
 
 Does that mean software engineers (or any other desk job) will have work in the
-future? Probably not. But there will definitely be no shortage of hair
-dressers and nurses.
+future? Probably not. But there will definitely be no shortage of demand for
+hair dressers, nurses, and good food. People need to eat and need personal
+care. Guess I'll need to learn how to make a really good taco.
