@@ -10,7 +10,7 @@ pre-LLM software engineering experience.
 
 ## A Static Site Generator vibed in an afternoon
 
-First this blog is just a bunch of Markdown files on a file system. Instead of
+First, this blog is just a bunch of Markdown files on a file system. Instead of
 taking the time to read up on how to use existing [static site
 generators](https://gohugo.io/getting-started/) I can instead just explain how
 I want my ideal static site generator to work to an LLM and have it build one
@@ -25,7 +25,7 @@ enough job with the code, it would result in:
 - an unmaintainable mess I would rarely want to return to
 - an over-investment in code that most of the world probably will never care about
 
-That's just a round-about way of saying my _pride_ got in the way.
+That's just a roundabout way of saying my _pride_ got in the way.
 
 Instead I took the opportunity to try using the [Codex
 App](https://openai.com/index/introducing-the-codex-app/) to make this a
@@ -41,11 +41,11 @@ future feels like. I have a subscription, so Codex app it was.
 
 And the experience was part future, and part not future. One "future" feeling
 part was being one more abstraction away from the code; the code editor is not
-part of the experience, instructing what should be built was along with
+part of the experience; instructing what should be built went along with
 reviewing the code. That's a small step in the future, but not quite there yet.
-What definitely not future (or even present IMO) is the fact that I have to
-still sit in front of my computer to give it instructions. With all of the
-raving about [OpenClaw aka ClawdBot](https://www.reddit.com/r/clawdbot/)
+What is definitely not the future (or even the present, IMO) is the fact that I
+have to still sit in front of my computer to give it instructions. With all of
+the raving about [OpenClaw aka ClawdBot](https://www.reddit.com/r/clawdbot/)
 enabling interactions via WhatsApp I did feel a bit annoyed about the Codex App
 experience.
 
@@ -58,14 +58,14 @@ Sure the code is awkward and weird for anyone used to "traditions." But after
 this experience _everyone_ should be trying these tools to understand what
 changed.
 
-For example way way back in undergrad university we had to take the standard
+For example, way way back as an undergrad, we had to take the standard
 algorithms and runtime class. The classic sorting algorithms ate a majority of
 the time but I liked my professor for two reasons:
 
 1. He clearly made the underhanded joke that for grading "we should imagine
    we're being chased by a hungry lion; we shouldn't try to outrun the lion,
    but instead not be the slowest person in the group."
-2. The work on sorting algorithms as for the most part focused on _comparisons_
+2. The work on sorting algorithms was for the most part focused on _comparisons_
    being slow. What if _comparisons_ are nearly free and instead memory swaps
    are slow?
 
@@ -88,24 +88,24 @@ as a challenge to see how quickly he could fix it.
 
 Our industry is no different. It's well known that those who don't deliver get
 their lunch eaten. Management doesn't care about tech debt until they feel the
-embarrassment themselves. That nicely craft code base is a pipe dream unless
+embarrassment themselves. That nicely crafted codebase is a pipe dream unless
 you're in the position of Linus Torvalds.
 
 I feel like the drive to be "agile" is a symptom of this. Agile processes value
 movement over nicely crafted designs. The bespoke and beautiful implementation
 is always a few iterations away.
 
-So the good news, that's all dead! You don't have to play by those rules
-anymore. But now? If your non-techy friend can manage to vibe a solution with
-OpenClaw in a weekend then you better be ready to accept that eventually your
-company's management is going to demand no less fairly soon.
+Good news: that's all dead! You don't have to play by those rules anymore. But
+now? If your non-techy friend can manage to vibe a solution with OpenClaw in a
+weekend then you better be ready to accept that eventually your company's
+management is going to demand no less fairly soon.
 
 On the bright side that refactor or bug fix you put off is just a few prompts
 away. The LLMs don't complain so you might as well see if you're lucky and get
 a few fixes.
 
 And you don't even have to _see_ the code anymore. Ask the LLM what is going on
-and just confirm if it is true or not. Saw a large swathe of code that looks
+and just confirm whether it is true. Saw a large swathe of code that looks
 and feels wrong? Ask the LLM to examine it and propose ways to improve. Hell
 even have the LLMs try several ideas and pick the one you like.
 
@@ -118,11 +118,11 @@ need and can afford.
 
 Only if you're willing to find the local woodworker will you find something
 built with care and attention to detail. But even they will use whatever tools
-or processes for efficiency. Rarely to people hand-plane entire boards anymore
+or processes for efficiency. Rarely do people hand-plane entire boards anymore
 when the machine does it far more efficiently.
 
 Don't get me wrong, I would love to have hand-crafted artwork and pottery if I
-was filthy rich. But the reality is most have no choice but to settle for the
+was filthy rich. But the reality is that most have no choice but to settle for the
 mass-produced products because they have no choice.
 
 On the other hand you can still go for the specialist route. But that's like
@@ -142,11 +142,11 @@ negatives are very obvious:
   are quickly diverting there.
 - Slop is nearly free.
 
-But we do have something big changes in technology:
+But we do have some big changes in technology:
 
 - Automated personal assistants are becoming reality
 - Filling a dumb HTML form for the millionth time should go away
-- The latest frontend framework don't matter anymore because people prefer
+- The latest frontend frameworks don't matter anymore because people prefer
   natural language and the LLM generates code anyway
 - ChatGPT can probably do tech support for your parents
 - One day you won't have to "do" your taxes yourself
@@ -155,7 +155,7 @@ But we do have something big changes in technology:
 It's definitely hard to see that last point as a positive. Let me explain. Your
 smart coworker says they'll write a nice email for you with all the details.
 They put a few lines in their slop generator and send it off. You get this
-giant email that will obviously take too much time and is suspiciously feels
+giant email that will obviously take too much time and suspiciously feels
 generated. So you hit the slop filter button and pull out their original
 prompt. People will catch on and start valuing the people that don't waste time
 and get shit done. Social pressure will overcome anything when people begin to
