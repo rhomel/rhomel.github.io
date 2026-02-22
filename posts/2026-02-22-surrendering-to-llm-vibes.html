@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Surrendering to the march of LLM vibes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-900 antialiased">
+  <main class="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+    <article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <header class="border-b border-slate-200 bg-slate-50 px-6 py-5">
+        <p class="text-xs font-semibold tracking-[0.08em] text-slate-500">Sun, 22 Feb 2026 19:11:27 JST</p>
+        <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Surrendering to the march of LLM vibes</h1>
+      </header>
+      <div class="px-6 py-7 text-[1.05rem] leading-6 text-slate-800
+        [&>*:first-child]:mt-0 [&>*:last-child]:mb-0
+        [&_h1]:mt-10 [&_h1]:mb-4 [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:leading-tight [&_h1]:tracking-tight [&_h1]:text-slate-900
+        [&_h2]:mt-9 [&_h2]:mb-3 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h2]:tracking-tight [&_h2]:text-slate-900
+        [&_h3]:mt-7 [&_h3]:mb-2 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:leading-snug [&_h3]:text-slate-900
+        [&_h4]:mt-6 [&_h4]:mb-2 [&_h4]:text-base [&_h4]:font-semibold [&_h4]:text-slate-900
+        [&_p]:my-3
+        [&_ul]:my-3 [&_ul]:ml-6 [&_ul]:list-disc
+        [&_ol]:my-3 [&_ol]:ml-6 [&_ol]:list-decimal
+        [&_li]:my-1
+        [&_blockquote]:my-6 [&_blockquote]:border-l-4 [&_blockquote]:border-blue-200 [&_blockquote]:bg-blue-50/40 [&_blockquote]:py-1 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-slate-700
+        [&_a]:font-medium [&_a]:text-blue-700 [&_a]:underline [&_a]:decoration-blue-300 [&_a]:underline-offset-2 hover:[&_a]:text-blue-900 hover:[&_a]:decoration-blue-500
+        [&_hr]:my-8 [&_hr]:border-slate-200
+        [&_img]:my-6 [&_img]:rounded-lg [&_img]:border [&_img]:border-slate-200
+        [&_table]:my-6 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_table]:border-collapse
+        [&_th]:border [&_th]:border-slate-200 [&_th]:bg-slate-50 [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold
+        [&_td]:border [&_td]:border-slate-200 [&_td]:px-3 [&_td]:py-2
+        [&_code]:rounded [&_code]:bg-slate-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.9em] [&_code]:text-slate-900
+        [&_pre]:my-6 [&_pre]:max-w-full [&_pre]:overflow-x-auto [&_pre]:rounded-xl [&_pre]:border [&_pre]:border-slate-800 [&_pre]:bg-slate-950 [&_pre]:p-4 [&_pre]:text-slate-100 [&_pre]:shadow-inner
+        [&_pre_code]:whitespace-pre [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:font-mono [&_pre_code]:text-sm [&_pre_code]:leading-6 [&_pre_code]:text-inherit">
+        <p>As expected, the latest generation of LLM releases continues to improve. I've
+now experienced enough to wave the white flag for &quot;traditional&quot; software
+development practices.</p>
+<p>Rather than turn this into another sob-post, I'll try to first point out what's
+different now and why I feel slightly less bothered despite nearly 2 decades of
+pre-LLM software engineering experience.</p>
+<h2>A Static Site Generator vibed in an afternoon</h2>
+<p>First, this blog is just a bunch of Markdown files on a file system. Instead of
+taking the time to read up on how to use existing <a href="https://gohugo.io/getting-started/">static site
+generators</a> I can instead just explain how
+I want my ideal static site generator to work to an LLM and have it build one
+tailored exactly to my needs.</p>
+<p>This was part experiment and part real-work. I always wanted a generator that
+was simple to me. While I knew I could write the code myself, I never did.
+Probably because I created my own mental blocks that if I didn't do a good
+enough job with the code, it would result in:</p>
+<ul>
+<li>an embarrassing show of my actual best software engineering skill</li>
+<li>an unmaintainable mess I would rarely want to return to</li>
+<li>an over-investment in code that most of the world probably will never care about</li>
+</ul>
+<p>That's just a roundabout way of saying my <em>pride</em> got in the way.</p>
+<p>Instead I took the opportunity to try using the <a href="https://openai.com/index/introducing-the-codex-app/">Codex
+App</a> to make this a
+reality. There wasn't any particular reason other than wanting to free myself
+from the traditional mold of coding tools.</p>
+<p>Claude Code did more or less what I imagined a text-based vibe coding tool
+should have done almost a year ago. And it works fairly well. Codex CLI is a
+similar experience and works nicely if you already have an OpenAI subscription.
+But those tools kind of lean too heavy on integrating nicely with existing dev
+workflows. If I'm going to try this stuff, let me have a glimpse of what the
+future feels like. I have a subscription, so Codex app it was.</p>
+<p>And the experience was part future, and part not future. One &quot;future&quot; feeling
+part was being one more abstraction away from the code; the code editor is not
+part of the experience; instructing what should be built went along with
+reviewing the code. That's a small step in the future, but not quite there yet.
+What is definitely not the future (or even the present, IMO) is the fact that I
+have to still sit in front of my computer to give it instructions. With all of
+the raving about <a href="https://www.reddit.com/r/clawdbot/">OpenClaw aka ClawdBot</a>
+enabling interactions via WhatsApp I did feel a bit annoyed about the Codex App
+experience.</p>
+<p>But all of that is for another time. The point I want to make is by letting go
+of my specialist pride, and diving into the clearly vibe-leaning tools, I made
+a <a href="https://github.com/rhomel/markdown-browser">static site generator idea</a>
+(that sat rent-free in my head for longer than I feel comfortable) a reality.</p>
+<p>Sure the code is awkward and weird for anyone used to &quot;traditions.&quot; But after
+this experience <em>everyone</em> should be trying these tools to understand what
+changed.</p>
+<p>For example, way way back as an undergrad, we had to take the standard
+algorithms and runtime class. The classic sorting algorithms ate a majority of
+the time but I liked my professor for two reasons:</p>
+<ol>
+<li>He clearly made the underhanded joke that for grading &quot;we should imagine
+we're being chased by a hungry lion; we shouldn't try to outrun the lion,
+but instead not be the slowest person in the group.&quot;</li>
+<li>The work on sorting algorithms was for the most part focused on <em>comparisons</em>
+being slow. What if <em>comparisons</em> are nearly free and instead memory swaps
+are slow?</li>
+</ol>
+<p>Both of those perspectives opened up my mind as a student a bit. We need to
+again adopt that mindset and understand what generated code via LLMs changed:</p>
+<ul>
+<li>You don't want to be left-behind to be eaten by the lion, so you must do
+something differently.</li>
+<li>LLMs make generating and modifying code cheap. Our ability to think of what
+should be built is now the bottleneck.</li>
+</ul>
+<h2>Code Quality or Quantity?</h2>
+<p>I blame my dad for my obsession with quality. He used to be able to open the
+hood on a new car and from his experience repairing them make a snarky comment
+about how crappy it was designed. Or open the wall of a house and either be
+disgusted or enamoured with the quality of hidden craftsmanship. But even to
+him speed and efficiency was obvious. No matter how ugly the job was he took it
+as a challenge to see how quickly he could fix it.</p>
+<p>Our industry is no different. It's well known that those who don't deliver get
+their lunch eaten. Management doesn't care about tech debt until they feel the
+embarrassment themselves. That nicely crafted codebase is a pipe dream unless
+you're in the position of Linus Torvalds.</p>
+<p>I feel like the drive to be &quot;agile&quot; is a symptom of this. Agile processes value
+movement over nicely crafted designs. The bespoke and beautiful implementation
+is always a few iterations away.</p>
+<p>Good news: that's all dead! You don't have to play by those rules anymore. But
+now? If your non-techy friend can manage to vibe a solution with OpenClaw in a
+weekend then you better be ready to accept that eventually your company's
+management is going to demand no less fairly soon.</p>
+<p>On the bright side that refactor or bug fix you put off is just a few prompts
+away. The LLMs don't complain so you might as well see if you're lucky and get
+a few fixes.</p>
+<p>And you don't even have to <em>see</em> the code anymore. Ask the LLM what is going on
+and just confirm whether it is true. Saw a large swathe of code that looks
+and feels wrong? Ask the LLM to examine it and propose ways to improve. Hell
+even have the LLMs try several ideas and pick the one you like.</p>
+<p>If you're still not convinced then go to your local furniture stores. Even for
+the mid-range priced furniture see how many people are there. Then flip over
+that table or couch and try to find the number of corners that were cut. Now go
+to IKEA and see how many people are happy just to have a cheap colorful table
+made from cardboard. Either way corners were cut. People will pay for what they
+need and can afford.</p>
+<p>Only if you're willing to find the local woodworker will you find something
+built with care and attention to detail. But even they will use whatever tools
+or processes for efficiency. Rarely do people hand-plane entire boards anymore
+when the machine does it far more efficiently.</p>
+<p>Don't get me wrong, I would love to have hand-crafted artwork and pottery if I
+was filthy rich. But the reality is that most have no choice but to settle for the
+mass-produced products because they have no choice.</p>
+<p>On the other hand you can still go for the specialist route. But that's like
+trying to be a hit artist among millions. It definitely isn't the right play if
+you need to pay your bills.</p>
+<h2>The Good Parts</h2>
+<p>I'll admit, I'm definitely struggling to see the positives because all of the
+negatives are very obvious:</p>
+<ul>
+<li>Traditional software engineering will be less valued as the ability to
+execute quickly becomes the priority.</li>
+<li>The AI players are eating all computing infrastructure making even personal
+computing more expensive.</li>
+<li>No one but incumbents can compete with data centers and fabs. All resources
+are quickly diverting there.</li>
+<li>Slop is nearly free.</li>
+</ul>
+<p>But we do have some big changes in technology:</p>
+<ul>
+<li>Automated personal assistants are becoming reality</li>
+<li>Filling a dumb HTML form for the millionth time should go away</li>
+<li>The latest frontend frameworks don't matter anymore because people prefer
+natural language and the LLM generates code anyway</li>
+<li>ChatGPT can probably do tech support for your parents</li>
+<li>One day you won't have to &quot;do&quot; your taxes yourself</li>
+<li>The generators of slop are also the filters of slop</li>
+</ul>
+<p>It's definitely hard to see that last point as a positive. Let me explain. Your
+smart coworker says they'll write a nice email for you with all the details.
+They put a few lines in their slop generator and send it off. You get this
+giant email that will obviously take too much time and suspiciously feels
+generated. So you hit the slop filter button and pull out their original
+prompt. People will catch on and start valuing the people that don't waste time
+and get shit done. Social pressure will overcome anything when people begin to
+realize they're being excluded.</p>
+<p>In other words whatever the machine can do will become average because it
+becomes common. What people can do (for each other) remains interesting because
+most humans still value social language.</p>
+<p>Does that mean software engineers (or any other desk job) will have work in the
+future? Probably not. But there will definitely be no shortage of hair
+dressers and nurses.</p>
+
+      </div>
+    </article>
+  </main>
+</body>
+</html>
