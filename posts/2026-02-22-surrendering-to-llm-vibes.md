@@ -51,8 +51,8 @@ experience.
 
 But all of that is for another time. The point I want to make is by letting go
 of my specialist pride, and diving into the clearly vibe-leaning tools, I made
-a static site generator idea that sat rent-free in my head for longer than I
-feel comfortable a reality.
+a [static site generator idea](https://github.com/rhomel/markdown-browser)
+(that sat rent-free in my head for longer than I feel comfortable) a reality.
 
 Sure the code is awkward and weird for anyone used to "traditions." But after
 this experience _everyone_ should be trying these tools to understand what
