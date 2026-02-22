@@ -21,7 +21,7 @@ was simple to me. While I knew I could write the code myself, I never did.
 Probably because I created my own mental blocks that if I didn't do a good
 enough job with the code, it would result in:
 
-- an embarrasing show of my actual best software engineering skill
+- an embarrassing show of my actual best software engineering skill
 - an unmaintainable mess I would rarely want to return to
 - an over-investment in code that most of the world probably will never care about
 
@@ -29,7 +29,7 @@ That's just a round-about way of saying my _pride_ got in the way.
 
 Instead I took the opportunity to try using the [Codex
 App](https://openai.com/index/introducing-the-codex-app/) to make this a
-realty. There wasn't any particular reason other than wanting to free myself
+reality. There wasn't any particular reason other than wanting to free myself
 from the traditional mold of coding tools.
 
 Claude Code did more or less what I imagined a text-based vibe coding tool
@@ -52,7 +52,7 @@ experience.
 But all of that is for another time. The point I want to make is by letting go
 of my specialist pride, and diving into the clearly vibe-leaning tools, I made
 a static site generator idea that sat rent-free in my head for longer than I
-feel confortable a reality.
+feel comfortable a reality.
 
 Sure the code is awkward and weird for anyone used to "traditions." But after
 this experience _everyone_ should be trying these tools to understand what
@@ -73,7 +73,7 @@ Both of those perspectives opened up my mind as a student a bit. We need to
 again adopt that mindset and understand what generated code via LLMs changed:
 
 - You don't want to be left-behind to be eaten by the lion, so you must do
-  something differntly.
+  something differently.
 - LLMs make generating and modifying code cheap. Our ability to think of what
   should be built is now the bottleneck.
 
@@ -88,7 +88,7 @@ as a challenge to see how quickly he could fix it.
 
 Our industry is no different. It's well known that those who don't deliver get
 their lunch eaten. Management doesn't care about tech debt until they feel the
-embarassment themselves. That nicely craft code base is a pipe dream unless
+embarrassment themselves. That nicely craft code base is a pipe dream unless
 you're in the position of Linus Torvalds.
 
 I feel like the drive to be "agile" is a symptom of this. Agile processes value
@@ -135,7 +135,7 @@ I'll admit, I'm definitely struggling to see the positives because all of the
 negatives are very obvious:
 
 - Traditional software engineering will be less valued as the ability to
-  execute quickly becoems the priority.
+  execute quickly becomes the priority.
 - The AI players are eating all computing infrastructure making even personal
   computing more expensive.
 - No one but incumbents can compete with data centers and fabs. All resources
@@ -168,4 +168,3 @@ most humans still value social language.
 Does that mean software engineers (or any other desk job) will have work in the
 future? Probably not. But there will definitely be no shortage of hair
 dressers and nurses.
-
